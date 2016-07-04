@@ -12,12 +12,13 @@ app.controller('MainCtrl', function($scope, $http) {
       format: 'json',
       nojsoncallback: 1
     };
-    $http.get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8b9d320bb2e3afd7f41840991022165d&tags=' + vm.tag + '&format=json&nojsoncallback=1').then(
+    
+    $http.get('https://api.flickr.com/services/rest/', {params: params}).then(
       function (response) {
         vm.photos = response.data.photos.photo;
       },
-      function error(error, status, headers, config){
-        console.log('error');
+      function error(error){
+        console.log('error')
       }
     );
   };
