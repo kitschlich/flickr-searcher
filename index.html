@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" ng-app="FlickrSearcher">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.9/angular.js" data-semver="1.4.9"></script>
+    <title>Flickr Searcher</title>
+</head>
+<body ng-controller="MainCtrl as vm">
+    <h1 class="main-heading">Flickr Searcher</h1>
+    <form class="search" name="search" novalidate ng-submit="submit()">
+        <input type="text" name="tag" placeholder="Enter a tag to search for" ng-model="vm.tag" required />
+        <input type="submit" value="Submit"/>
+    </form>
+    <div ng-repeat="photo in vm.photos">
+        <img ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg"></img>
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
