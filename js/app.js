@@ -2,9 +2,10 @@ var app = angular.module('FlickrSearcher', []);
 
 app.controller('MainCtrl', function($scope, $http) {
   var vm = this;
+  vm.searching = 1;
   
   $scope.submit = function() {
-    // for some reason this call isn't working with the params object, so hardcoded for now
+    vm.searching = 2;
     var params = {
       method: 'flickr.photos.search',
       api_key: '8b9d320bb2e3afd7f41840991022165d',
@@ -16,13 +17,13 @@ app.controller('MainCtrl', function($scope, $http) {
     $http.get('https://api.flickr.com/services/rest/', {params: params}).then(
       function (response) {
         vm.photos = response.data.photos.photo;
+        vm.searching = 3;
+        vm.oldTag = vm.tag;
+        vm.tag = "";
       },
       function error(error){
         console.log('error')
       }
     );
   };
-
-  vm.testHeadlines = ['hi', 'bye', 'stuff', 'things'];
-  
 });

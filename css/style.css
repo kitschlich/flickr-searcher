@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+}
+
+.main-heading {
+    margin-top: 4em;
+    font-size: 4em;
+}
+
+.loader {
+    text-align: center;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.img-grid {
+    display: inline-block;
+    width: 33%;
+    max-height: 300px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
